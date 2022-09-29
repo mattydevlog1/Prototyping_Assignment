@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 98eb6cccecdb0bd43bac69ea86e67420
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: aa782d0b6d4d7e64f8e1af427d0bd3a3, type: 2}
+  _fileAsset: {fileID: 6013892654665635331, guid: 98eb6cccecdb0bd43bac69ea86e67420, type: 3}
+  _assetPath: Assets/Resources/Material/stylized_muddy_soil.sbsar

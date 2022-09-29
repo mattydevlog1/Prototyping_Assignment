@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ffeda177ef359a44d829ba560adce6f8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: 860bbfa49d219ea4b81e6a9dfa2c5ec7, type: 2}
+  _fileAsset: {fileID: 6013892654665635331, guid: ffeda177ef359a44d829ba560adce6f8, type: 3}
+  _assetPath: Assets/Resources/Material/stylized_lawn_grass (1).sbsar

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6412aa0b97f26a14984e886ff8dd375e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: be3916ccc69d4bf4a8218288a13a258b, type: 2}
+  _fileAsset: {instanceID: 0}
+  _assetPath: Assets/Resources/Material/stylized_gravel_sand_beach.sbsar

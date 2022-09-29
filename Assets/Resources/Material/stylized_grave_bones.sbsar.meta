@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: da60983afbcb593409798113189e6774
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: dda12f74ff9116a42b23482252b2c482, type: 3}
+  _instancesCopy:
+  - {fileID: 11400000, guid: 1b167d11f8aef5e47b46e6b13839d0ba, type: 2}
+  _fileAsset: {instanceID: 0}
+  _assetPath: Assets/Resources/Material/stylized_grave_bones.sbsar
