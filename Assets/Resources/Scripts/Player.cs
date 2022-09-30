@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -16,9 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject gun;
 
-    RaycastHit hit;
-    LayerMask enemy;
+
     Ray ray;
+    public bool isHit;
 
     private float shootRange = 10f;
 
@@ -33,18 +34,16 @@ public class Player : MonoBehaviour
     }
     void Shoot()
     {
-        Debug.Log("You shot!");
-        Ray ray = new Ray(transform.position, transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction * shootRange, Color.yellow);
+        RaycastHit hit;
+        // Ray ray = new Ray(transform.position, transform.forward);
+        //  Debug.DrawRay(ray.origin, ray.direction * shootRange, Color.yellow);
 
-
-
-
-        if (Physics.Raycast(gun.transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, enemy))
+        if (Physics.Raycast(gun.transform.position, transform.TransformDirection(Vector3.forward), out hit, shootRange))
         {
-            //  Debug.DrawRay(gun.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            isHit = true;
+            Debug.Log("Did hit");
         }
+
     }
 
     private void Update()
