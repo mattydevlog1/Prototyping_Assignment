@@ -8,7 +8,7 @@ public class TimeDilution : MonoBehaviour
 {
 
     private float fixedDeltaTime;
-    public TMP_Text timeDilution;
+    
 
     
 
@@ -97,9 +97,9 @@ public class TimeDilution : MonoBehaviour
     }
     public void resourceAdd()
     {
-        timeResource += 10f;
+        timeResource += 0.2f;
 
-        if (timeResource > 30)
+        if (timeResource > 40)
         {
             CancelInvoke();
         }
