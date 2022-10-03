@@ -5,9 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     float spawnTimer;
-    float spawnRate;
     float spawnLimit;
-    float moveSpeed;
+
 
 
     [SerializeField]
@@ -19,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         spawnLimit = 1;
-        spawnRate = 1;
         spawnTimer = 60;
     }
 
@@ -41,18 +39,12 @@ public class EnemySpawner : MonoBehaviour
         if (spawnLimit >= 0)
         {
             spawnLimit--;
-            InvokeRepeating("SpawnEnemy", 0f, 10f);
-
-
-            // Debug.Log("SpawnWorks");
+            InvokeRepeating("SpawnEnemy", 0f, 3f);
         }
     }
     void SpawnEnemy()
     {
-
-
         Rigidbody instance = Instantiate(enemy);
         enemy.transform.position = spawn.transform.position;
-
     }
 }

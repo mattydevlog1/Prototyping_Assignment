@@ -434,6 +434,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3350327653773911714, guid: a3123bfadce793b448a4025252826574, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350327653773911725, guid: a3123bfadce793b448a4025252826574, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 7917124770705016171, guid: 5130510c148e44d4180407fc3e782d45, type: 3}
+    - target: {fileID: 3350327653773911725, guid: a3123bfadce793b448a4025252826574, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3350327654500694536, guid: a3123bfadce793b448a4025252826574, type: 3}
       propertyPath: m_Name
       value: Player
@@ -480,6 +492,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3350327654500694551, guid: a3123bfadce793b448a4025252826574, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350327655426563633, guid: a3123bfadce793b448a4025252826574, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.GraphicsBuffer;
 
 public class Player : MonoBehaviour
 {
@@ -17,37 +19,54 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject gun;
 
+    float playerMaxHp = 5;
+    float playerCurrentHp;
+    float enemyDmg = 1;
+
+    public static float damage = 1;
+
+
+    public GameObject enemy;
 
     Ray ray;
-    public bool isHit;
 
     private float shootRange = 10f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerCurrentHp = playerMaxHp;
     }
 
-    public void Fire(InputAction.CallbackContext context)
-    {
-        Shoot();
-    }
+
     void Shoot()
     {
         RaycastHit hit;
-        // Ray ray = new Ray(transform.position, transform.forward);
-        //  Debug.DrawRay(ray.origin, ray.direction * shootRange, Color.yellow);
-
         if (Physics.Raycast(gun.transform.position, transform.TransformDirection(Vector3.forward), out hit, shootRange))
         {
-            isHit = true;
-            Debug.Log("Did hit");
-        }
+            if (hit.collider.gameObject.CompareTag("Enemy"))
+            {
 
+                Target target = hit.collider.gameObject.GetComponent<Target>();
+                target.Hit();
+
+                // Debug.Log("Target is hit");
+
+                //  Target target = gameObject.GetComponent<Target>();
+                //  target.Hit(damage);
+            }
+        }
     }
 
-    private void Update()
+
+    void Update()
     {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+
 
         if (Input.mousePosition.y > 0)
         {
@@ -64,14 +83,16 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
         }
 
+        if (playerCurrentHp <= 0)
+        {
+            Debug.Log("Youdied");
+        }
 
     }
 
+
     public void Move(InputAction.CallbackContext context)
     {
-
-
-
         if (Input.GetKey(KeyCode.D))
         {
             rb.velocity = transform.right * moveSpeed;
@@ -79,6 +100,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = -transform.right * moveSpeed;
+
         }
         if (Input.GetKey(KeyCode.W))
         {
@@ -88,10 +110,22 @@ public class Player : MonoBehaviour
         {
             rb.velocity = -transform.forward * moveSpeed;
         }
+    }
 
+
+    void OnTriggerEnter(Collider other)
+    {
+        playerCurrentHp = playerCurrentHp - enemyDmg;
     }
 
 }
+
+
+
+
+
+
+
 
 
 
