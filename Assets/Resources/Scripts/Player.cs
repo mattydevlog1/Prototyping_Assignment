@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private GameObject gun;
 
     float playerMaxHp = 5;
-    float playerCurrentHp;
+    public float playerCurrentHp;
     float enemyDmg = 1;
 
     public static float damage = 1;

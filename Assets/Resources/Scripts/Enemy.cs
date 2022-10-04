@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     float EnemyCurrentHp = 5;
-    float EnemyDamageTaken;
+   
     float timesHit;
     float gunDamage1 = 1;
 
@@ -16,8 +16,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        EnemyCurrentHp = 5;
-        EnemyDamageTaken = 0;
+       
         timesHit = 0;
         isHit = false;
 

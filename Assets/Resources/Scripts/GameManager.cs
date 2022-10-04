@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         timeKeeper.text = GameObject.Find("Ellen").GetComponent<TimeDilution>().timeResource.ToString("0");
-       
+        GameObject.Find("Ellen").GetComponent<Player>().playerCurrentHp.ToString("0");
     }
     public void timeUpdate()
     {
