@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Adobe.Substance.Runtime;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,11 @@ using UnityEngine;
 public class TimeDilution : MonoBehaviour
 {
 
+    public enum TimeState {Normal, Return, Slowed}
+
+    [SerializeField] private TimeState timeState;
+    
+    
     private float fixedDeltaTime;
     
 
@@ -17,10 +23,18 @@ public class TimeDilution : MonoBehaviour
 
 
     [SerializeField]
-    private float maxTimeResource = 40f;
-    public float timeResource;
+    private double maxTimeResource = 100f;
+    public double timeResource;
 
     private bool isKeyPressed = false;
+    private bool timeCircleActive = false;
+
+    public GameObject timeCircle;
+    public GameObject player;
+
+    public AudioClip timeSlowedDown;
+    
+    
    
     void Awake()
     {
@@ -30,78 +44,100 @@ public class TimeDilution : MonoBehaviour
 
     void Update()
     {
-
-
-
-        if (Input.GetButtonDown("Fire1") && timeResource > 0 && isKeyPressed == false)
+        
+        switch (timeState)
         {
-
-            Debug.Log("slow down time");
-
-            slowTime();
-            countDownTimer();
-            isKeyPressed = true;
-            return;
-
-
-
-        }
-        else if (Input.GetButtonDown("Fire1") && isKeyPressed == true)
-        {
-            Debug.Log("return to normal timescale");
-            returnTime();
-            countDownAdditive();
-            isKeyPressed = false;
-
-        }
-        else if (timeResource < 0)
-        {
-            returnTime();
-            countDownAdditive();
-            isKeyPressed = false;
+          
+            case TimeState.Normal:
+                returnTime();
+                break;
             
-
+            case TimeState.Return:
+                returnTime();
+                resourceAdd();
+                break;
+            
+            case TimeState.Slowed:
+                slowTime();
+                resourceDrain();
+                TimeCircleSpawner();
+                break;
+                
         }
+
+        if (Input.GetKeyDown(KeyCode.T) && timeResource > 0 && timeState == TimeState.Normal)
+        {
+            Debug.Log("Slowing down Time");
+            timeState = TimeState.Slowed;
+            
+            
+        }
+        if (Input.GetKeyDown(KeyCode.T) && timeResource < 0 && timeState == TimeState.Slowed)
+        {
+            Debug.Log("Returned by input");
+            timeState = TimeState.Return;
+        }
+        
+        
+        
+       
+
 
 
 
     }
     public void slowTime()
     {
+        Debug.Log("slowing time: from void slowtime");
         Time.timeScale = slowMotionTargetTime;
+        
+        
     }
     public void returnTime()
     {
+        Debug.Log("returning time: from void returntime");
+        timeCircleActive = false;
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-
-    }
-    public void countDownTimer()
-    {
-        InvokeRepeating("resourceDrain", 1f, 0.1f);
-
         
+
     }
+    
     public void resourceDrain()
     {
-       timeResource -=10f;
+        Debug.Log("draining");
+
+       timeResource -= Time.fixedDeltaTime;
         
-        if (timeResource < 10)
+        if (timeResource < 0)
         {
-            CancelInvoke();
+            
+            timeState = TimeState.Return;
+            
         }
     }
-    public void countDownAdditive()
-    {
-        InvokeRepeating("resourceAdd", 1f, 0.1f);
-    }
+    
     public void resourceAdd()
     {
-        timeResource += 0.2f;
+        Debug.Log("restoring");
+        
+        timeResource += Time.fixedDeltaTime;
 
-        if (timeResource > 40)
+        if (timeResource > 10)
         {
-            CancelInvoke();
+           
+            timeState = TimeState.Normal;
+        }
+    }
+
+    public void TimeCircleSpawner()
+    {
+        if (timeCircleActive == false)
+        {
+            timeCircleActive = true;
+            AudioSource.PlayClipAtPoint(timeSlowedDown, transform.position);
+            Instantiate(timeCircle, player.transform);
+            
         }
     }
 }
