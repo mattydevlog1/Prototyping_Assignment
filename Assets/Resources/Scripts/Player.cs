@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     Ray ray;
 
-    private float shootRange = 10f;
+    private float shootRange = 30f;
 
     private void Start()
     {
@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(gun.transform.position, transform.TransformDirection(Vector3.forward), out hit, shootRange))
         {
+            Vector3 forward = transform.TransformDirection(Vector3.forward) * 30;
+            Debug.DrawRay(transform.position, forward, Color.green);
 
 
             if (hit.collider.gameObject.CompareTag("Enemy"))
