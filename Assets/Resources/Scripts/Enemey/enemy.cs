@@ -28,9 +28,9 @@ public class enemy : MonoBehaviour
     public AudioSource zombieMoan;
     public AudioSource zombieAttack;
     public AudioSource zombieDie;
-    
-    
-   
+
+
+
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class enemy : MonoBehaviour
         zombieMoan = gameObject.GetComponent<AudioSource>();
         zombieAttack = gameObject.GetComponent<AudioSource>();
         zombieDie = gameObject.GetComponent<AudioSource>();
-        
+
 
         navAgent.SetDestination(destination.position);
         Target target = gameObject.GetComponent<Target>();
@@ -76,22 +76,22 @@ public class enemy : MonoBehaviour
         }
         else
             anim.SetBool("Walk", false);
-            zombieMoan.Pause();
+        zombieMoan.Pause();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Target target = other.gameObject.GetComponent<Target>();
-        
-        
 
-        
-            target.Hit(damage);
-            Instantiate(blood, transform.position, Quaternion.identity);
-            
-             
-        
+
+
+
+        //   target.Hit(damage);
+        Instantiate(blood, transform.position, Quaternion.identity);
+
+
+
     }
 
-    
+
 }

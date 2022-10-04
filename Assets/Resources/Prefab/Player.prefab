@@ -116,8 +116,7 @@ MonoBehaviour:
   rb: {fileID: 3350327653773911724}
   moveSpeed: 5
   gun: {fileID: 3350327655426563635}
-  Enemy: {fileID: 0}
-  isHit: 0
+  enemy: {fileID: 0}
 --- !u!114 &3350327653773911726
 MonoBehaviour:
   m_ObjectHideFlags: 0
