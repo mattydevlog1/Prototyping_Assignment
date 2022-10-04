@@ -42,7 +42,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
+<<<<<<< HEAD
       "version": "1.4.3",
+=======
+      "version": "1.4.2",
+>>>>>>> 09856cd306d4915efb648708deff1fe2546dcd8d
       "depth": 0,
       "source": "registry",
       "dependencies": {
