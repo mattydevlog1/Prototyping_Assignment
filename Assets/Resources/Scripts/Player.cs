@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private float moveSpeed;
 
     [SerializeField]
-    private GameObject gun;
+    public GameObject gun;
 
     float playerMaxHp = 5;
     public float playerCurrentHp;
@@ -44,11 +44,13 @@ public class Player : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(gun.transform.position, transform.TransformDirection(Vector3.forward), out hit, shootRange))
         {
+
+
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
 
                 Target target = hit.collider.gameObject.GetComponent<Target>();
-                target.Hit();
+                target.Hit(damage);
 
                 // Debug.Log("Target is hit");
 
@@ -62,8 +64,10 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+
         if (Input.GetMouseButtonDown(0))
         {
+
             Shoot();
         }
 

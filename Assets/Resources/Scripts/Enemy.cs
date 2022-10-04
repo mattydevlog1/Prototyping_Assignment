@@ -49,11 +49,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    public static void Hit()
-    {
-        isHit = true;
-        // Debug.Log("ok");
-    }
+   
     public void TakeDamage()
     {
         EnemyCurrentHp = EnemyCurrentHp - gunDamage1;
