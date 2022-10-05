@@ -7,10 +7,14 @@ public class EnemySpawner : MonoBehaviour
     float spawnTimer;
     float spawnLimit;
 
+    public int spawnlocation;
+
+    public GameObject[] spawnPos = new GameObject [9];
+
 
 
     [SerializeField]
-    Rigidbody enemy;
+    GameObject enemy;
 
     [SerializeField]
     GameObject spawn;
@@ -19,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnLimit = 1;
         spawnTimer = 60;
+        
     }
 
 
@@ -44,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        Rigidbody instance = Instantiate(enemy);
-        enemy.transform.position = spawn.transform.position;
+         Instantiate(enemy, spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
+        
     }
 }

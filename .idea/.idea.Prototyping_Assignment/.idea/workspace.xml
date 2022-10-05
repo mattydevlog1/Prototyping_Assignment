@@ -9,9 +9,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/PlayerAnimController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Resources/Scripts/Xreasler_testing/Target.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Worm_Assignment/Assets/Resources/Scripts/Gameplay/Bounce_Smoke.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Worm_Assignment/Assets/Resources/Scripts/Player/InputController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Worm_Assignment/Assets/Resources/Scripts/Player/InputController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Worm_Assignment/Assets/Resources/Scripts/Player/Locomotion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Worm_Assignment/Assets/Resources/Scripts/Weapon/Round.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Worm_Assignment/Assets/Resources/Scripts/Weapon/Target.cs" root0="SKIP_HIGHLIGHTING" />
@@ -76,6 +75,7 @@
       <workItem from="1664801971537" duration="3019000" />
       <workItem from="1664807190110" duration="9547000" />
       <workItem from="1664866553480" duration="3045000" />
+      <workItem from="1664953098149" duration="1030000" />
     </task>
     <servers />
   </component>
