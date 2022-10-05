@@ -9737,6 +9737,7 @@ GameObject:
   - component: {fileID: 33534790125894564}
   - component: {fileID: 23273112770346128}
   - component: {fileID: 65463004668742868}
+  - component: {fileID: 8195446346479206266}
   m_Layer: 0
   m_Name: Acid
   m_TagString: Untagged
@@ -9823,3 +9824,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &8195446346479206266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558230472247936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a20938c7d292b84793abdd33e6ac43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acidDamage: 10

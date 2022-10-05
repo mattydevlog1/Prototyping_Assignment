@@ -16,8 +16,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     GameObject enemy;
 
-    [SerializeField]
-    GameObject spawn;
+   
 
     void Start()
     {
