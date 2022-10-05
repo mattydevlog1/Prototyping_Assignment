@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public float playerCurrentHp;
     float enemyDmg = 1;
 
+    public Animator player;
+
 
 
     public GameObject enemy;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        player = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerCurrentHp = playerMaxHp;
     }
@@ -67,29 +70,23 @@ public class Player : MonoBehaviour
 
 
 
+        Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        rb.MovePosition(transform.position + m_Input * Time.deltaTime * moveSpeed);
+
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            player.SetBool("IsWalking", true);
+
+        }
+        else
+        {
+            player.SetBool("IsWalking", false);
+        }
+
     }
 
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            rb.velocity = transform.right * moveSpeed;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.velocity = -transform.right * moveSpeed;
 
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.velocity = transform.forward * moveSpeed;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rb.velocity = -transform.forward * moveSpeed;
-        }
-    }
 
 
     void OnTriggerEnter(Collider other)
