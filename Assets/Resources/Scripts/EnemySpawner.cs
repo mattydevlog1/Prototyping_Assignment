@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int spawnlocation;
 
-    public GameObject[] spawnPos = new GameObject [9];
+    public GameObject[] spawnPos = new GameObject[9];
 
 
 
@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnLimit = 1;
         spawnTimer = 60;
-        
+
     }
 
 
@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-         Instantiate(enemy, spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
-        
+        Instantiate(enemy, spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
+
     }
 }

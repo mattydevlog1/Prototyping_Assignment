@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-      //  Debug.Log(health);
+        //  Debug.Log(health);
 
         if (health <= 0)
         {
@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
     /// 'Hits' the target for a certain amount of damage
     public void Hit(float damage)
     {
-        health -= Player.damage;
+        health -= Gun.damage;
         Debug.Log(health);
     }
 

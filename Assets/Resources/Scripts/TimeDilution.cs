@@ -8,15 +8,15 @@ using UnityEngine;
 public class TimeDilution : MonoBehaviour
 {
 
-    public enum TimeState {Normal, Return, Slowed}
+    public enum TimeState { Normal, Return, Slowed }
 
     [SerializeField] private TimeState timeState;
-    
-    
-    private float fixedDeltaTime;
-    
 
-    
+
+    private float fixedDeltaTime;
+
+
+
 
     [Header("Set Slowmotion time")]
     public float slowMotionTargetTime;
@@ -33,9 +33,9 @@ public class TimeDilution : MonoBehaviour
     public GameObject player;
 
     public AudioClip timeSlowedDown;
-    
-    
-   
+
+
+
     void Awake()
     {
         this.fixedDeltaTime = Time.fixedDeltaTime;
@@ -44,43 +44,44 @@ public class TimeDilution : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log(timeResource);
+
         switch (timeState)
         {
-          
+
             case TimeState.Normal:
                 returnTime();
                 break;
-            
+
             case TimeState.Return:
                 returnTime();
                 resourceAdd();
                 break;
-            
+
             case TimeState.Slowed:
                 slowTime();
                 resourceDrain();
                 TimeCircleSpawner();
                 break;
-                
+
         }
 
         if (Input.GetKeyDown(KeyCode.T) && timeResource > 0 && timeState == TimeState.Normal)
         {
             Debug.Log("Slowing down Time");
             timeState = TimeState.Slowed;
-            
-            
+
+
         }
         if (Input.GetKeyDown(KeyCode.T) && timeResource < 0 && timeState == TimeState.Slowed)
         {
             Debug.Log("Returned by input");
             timeState = TimeState.Return;
         }
-        
-        
-        
-       
+
+
+
+
 
 
 
@@ -90,8 +91,8 @@ public class TimeDilution : MonoBehaviour
     {
         Debug.Log("slowing time: from void slowtime");
         Time.timeScale = slowMotionTargetTime;
-        
-        
+
+
     }
     public void returnTime()
     {
@@ -99,33 +100,33 @@ public class TimeDilution : MonoBehaviour
         timeCircleActive = false;
         Time.timeScale = 1.0f;
         Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
-        
+
 
     }
-    
+
     public void resourceDrain()
     {
         Debug.Log("draining");
 
-       timeResource -= Time.fixedDeltaTime;
-        
+        timeResource -= Time.fixedDeltaTime;
+
         if (timeResource < 0)
         {
-            
+
             timeState = TimeState.Return;
-            
+
         }
     }
-    
+
     public void resourceAdd()
     {
         Debug.Log("restoring");
-        
+
         timeResource += Time.fixedDeltaTime;
 
         if (timeResource > 10)
         {
-           
+
             timeState = TimeState.Normal;
         }
     }
@@ -137,7 +138,7 @@ public class TimeDilution : MonoBehaviour
             timeCircleActive = true;
             AudioSource.PlayClipAtPoint(timeSlowedDown, transform.position);
             Instantiate(timeCircle, player.transform);
-            
+
         }
     }
 }

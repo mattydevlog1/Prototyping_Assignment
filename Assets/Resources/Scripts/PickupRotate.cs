@@ -5,14 +5,14 @@ using UnityEngine;
 public class PickupRotate : MonoBehaviour
 {
 
-    public Rigidbody rb; 
+    public Rigidbody rb;
     Vector3 m_EulerAngleVelocity;
     void Start()
     {
-      rb =  GetComponent<Rigidbody>();
-      m_EulerAngleVelocity = new Vector3(0, 100, 0);
-      
-      
+        rb = GetComponent<Rigidbody>();
+        m_EulerAngleVelocity = new Vector3(0, 100, 0);
+
+
     }
 
     // Update is called once per frame
@@ -21,4 +21,6 @@ public class PickupRotate : MonoBehaviour
         Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.fixedDeltaTime);
         rb.MoveRotation(rb.rotation * deltaRotation);
     }
+
+  
 }

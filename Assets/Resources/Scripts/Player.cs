@@ -16,21 +16,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
-    [SerializeField]
-    public GameObject gun;
 
     float playerMaxHp = 5;
     public float playerCurrentHp;
     float enemyDmg = 1;
 
-    public static float damage = 1;
 
 
     public GameObject enemy;
 
-    Ray ray;
 
-    private float shootRange = 30f;
 
     private void Start()
     {
@@ -39,39 +34,14 @@ public class Player : MonoBehaviour
     }
 
 
-    void Shoot()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(gun.transform.position, transform.TransformDirection(Vector3.forward), out hit, shootRange))
-        {
-            Vector3 forward = transform.TransformDirection(Vector3.forward) * 30;
-            Debug.DrawRay(transform.position, forward, Color.green);
-
-
-            if (hit.collider.gameObject.CompareTag("Enemy"))
-            {
-
-                Target target = hit.collider.gameObject.GetComponent<Target>();
-                target.Hit(damage);
-
-                // Debug.Log("Target is hit");
-
-                //  Target target = gameObject.GetComponent<Target>();
-                //  target.Hit(damage);
-            }
-        }
-    }
 
 
     void Update()
     {
+        Debug.Log(playerCurrentHp);
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
 
-            Shoot();
-        }
 
 
         if (Input.mousePosition.y > 0)
@@ -92,6 +62,7 @@ public class Player : MonoBehaviour
         if (playerCurrentHp <= 0)
         {
             Debug.Log("Youdied");
+            Destroy(gameObject);
         }
 
 
@@ -101,7 +72,7 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             rb.velocity = transform.right * moveSpeed;
         }
