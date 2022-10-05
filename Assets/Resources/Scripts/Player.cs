@@ -32,12 +32,14 @@ public class Player : MonoBehaviour
 
     private float shootRange = 30f;
 
+    public HealthBar healthBar;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerCurrentHp = playerMaxHp;
+        healthBar.SetMaxHealth((int)playerMaxHp);
     }
-
 
     void Shoot()
     {
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour
                 Target target = hit.collider.gameObject.GetComponent<Target>();
                 target.Hit(damage);
 
-                // Debug.Log("Target is hit");
+                Debug.Log("Target is hit");
 
                 //  Target target = gameObject.GetComponent<Target>();
                 //  target.Hit(damage);
@@ -65,8 +67,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         playerCurrentHp = playerCurrentHp - enemyDmg;
+        healthBar.SetHealth((int)playerCurrentHp);
     }
 
 }

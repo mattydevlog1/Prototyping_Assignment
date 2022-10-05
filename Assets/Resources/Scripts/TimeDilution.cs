@@ -33,6 +33,8 @@ public class TimeDilution : MonoBehaviour
     public GameObject player;
 
     public AudioClip timeSlowedDown;
+
+    public TimeDilutionBar timeDilutionBar;
     
     
    
@@ -69,6 +71,7 @@ public class TimeDilution : MonoBehaviour
         {
             Debug.Log("Slowing down Time");
             timeState = TimeState.Slowed;
+            timeDilutionBar.SetTime((float)timeResource);
             
             
         }
