@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun1 : MonoBehaviour
 {
     [SerializeField]
-    public GameObject Shotgun;
+    public Transform Shotgun;
 
 
     public static float damage = 1;
@@ -16,6 +16,8 @@ public class Gun1 : MonoBehaviour
 
     public Animator player;
 
+    public GameObject ShotgunPf;
+
     private void Start()
     {
         player = GameObject.Find("Ellen").GetComponent<Animator>();
@@ -24,6 +26,7 @@ public class Gun1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 15;
         Debug.DrawRay(transform.position, forward, Color.green);
 
@@ -31,34 +34,11 @@ public class Gun1 : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             player.SetTrigger("IsShooting");
-            Shoot();
+            Instantiate(ShotgunPf, Shotgun.position, Shotgun.rotation);
+            //   Destroy(ShotgunPf, 0.5f);
+            //   Shoot();
         }
 
     }
 
-    void Shoot()
-    {
-
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(Shotgun.transform.position, transform.TransformDirection(Vector3.forward), out hit, shootRange))
-            {
-
-
-
-                if (hit.collider.gameObject.CompareTag("Enemy"))
-                {
-
-                    Target target = hit.collider.gameObject.GetComponent<Target>();
-                    target.Hit(damage);
-
-                    // Debug.Log("Target is hit");
-
-                    //  Target target = gameObject.GetComponent<Target>();
-                    //  target.Hit(damage);
-                }
-            }
-        }
-
-    }
 }

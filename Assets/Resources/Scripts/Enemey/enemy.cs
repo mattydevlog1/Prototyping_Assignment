@@ -87,7 +87,7 @@ public class enemy : MonoBehaviour
 
 
         //   target.Hit(damage);
-        Instantiate(blood, transform.position, Quaternion.identity);
+        //     Instantiate(blood, transform.position, Quaternion.identity);
 
 
 

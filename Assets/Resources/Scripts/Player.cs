@@ -23,8 +23,6 @@ public class Player : MonoBehaviour
 
     public Animator player;
 
-
-
     public GameObject enemy;
 
 

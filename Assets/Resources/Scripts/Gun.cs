@@ -15,13 +15,21 @@ public class Gun : MonoBehaviour
     private float shootRange = 30f;
 
 
-
+    public Animator player;
     // Update is called once per frame
+
+
+    private void Start()
+    {
+        player = GameObject.Find("Ellen").GetComponent<Animator>();
+    }
+
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-
+            player.SetTrigger("IsShooting");
             Shoot();
         }
 

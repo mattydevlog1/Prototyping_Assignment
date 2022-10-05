@@ -41,7 +41,7 @@ public class TimeDilution : MonoBehaviour
         this.fixedDeltaTime = Time.fixedDeltaTime;
         timeResource = maxTimeResource;
     }
-
+      
     void Update()
     {
         Debug.Log(timeResource);

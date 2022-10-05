@@ -10,7 +10,7 @@ public class PickupRotate : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        m_EulerAngleVelocity = new Vector3(0, 100, 0);
+        m_EulerAngleVelocity = new Vector3(0, 25, 0);
 
 
     }
