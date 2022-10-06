@@ -7,6 +7,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
+
+
+
+
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +30,10 @@ public class Player : MonoBehaviour
 
     public GameObject enemy;
 
+    public HealthBar healthBar;
+
+
+
 
 
     private void Start()
@@ -32,6 +41,9 @@ public class Player : MonoBehaviour
         player = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerCurrentHp = playerMaxHp;
+        healthBar.SetMaxHealth((int)playerMaxHp);
+
+
     }
 
 
@@ -90,6 +102,18 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         playerCurrentHp = playerCurrentHp - enemyDmg;
+        healthBar.SetHealth((int)playerCurrentHp);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "HealthBox")
+        {
+            playerCurrentHp++;
+            healthBar.SetHealth((int)playerCurrentHp);
+
+
+        }
     }
 
 }

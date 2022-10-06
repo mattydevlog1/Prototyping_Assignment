@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     float EnemyCurrentHp = 5;
-   
-    float timesHit;
+
+
     float gunDamage1 = 1;
 
     public static bool isHit;
@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-       
-        timesHit = 0;
+
+
         isHit = false;
 
     }
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyCurrentHp < 0)
         {
-            //   isHit = true;
+
             EnemyDeath();
 
         }
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
 
 
-   
+
     public void TakeDamage()
     {
         EnemyCurrentHp = EnemyCurrentHp - gunDamage1;

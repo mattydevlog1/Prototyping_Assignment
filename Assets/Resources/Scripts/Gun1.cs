@@ -12,7 +12,7 @@ public class Gun1 : MonoBehaviour
 
     Ray ray;
 
-    private float shootRange = 15f;
+
 
     public Animator player;
 
