@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Time cube
       objectReference: {fileID: 0}
+    - target: {fileID: 465176804420963777, guid: 4b04d728b2f502e4aa79f04ad7b7299d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 465176804420963781, guid: 4b04d728b2f502e4aa79f04ad7b7299d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -33,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465176804420963783, guid: 4b04d728b2f502e4aa79f04ad7b7299d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.59
+      value: 120.95
       objectReference: {fileID: 0}
     - target: {fileID: 465176804420963783, guid: 4b04d728b2f502e4aa79f04ad7b7299d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465176804420963783, guid: 4b04d728b2f502e4aa79f04ad7b7299d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 75.1
+      value: 59.17
       objectReference: {fileID: 0}
     - target: {fileID: 465176804420963783, guid: 4b04d728b2f502e4aa79f04ad7b7299d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -91,3 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1575210d153ac46a766e48663521cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeEffect: {fileID: 2605316480486226868, guid: 114ab6919cf39484e946697e02cfa078, type: 3}
+  ellen: {fileID: 0}

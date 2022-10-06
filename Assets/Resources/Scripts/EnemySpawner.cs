@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        Instantiate(enemy[Random.Range(0, spawnPos.Length)], spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
+        Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
 
     }
 }

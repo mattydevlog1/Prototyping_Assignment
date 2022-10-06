@@ -4,7 +4,14 @@ public class Target : MonoBehaviour
 {
     public float health = 5;
 
+    public GameObject[] gameObjects = new GameObject[9];
 
+    public GameObject pickUp;
+    public GameObject me;
+    
+    
+
+    
 
     void Update()
     {
@@ -13,7 +20,13 @@ public class Target : MonoBehaviour
         if (health <= 0)
         {
 
-            Destroy(gameObject);
+            GameManager.instance.highScore += 1;
+            Destroy(me);
+            Instantiate(gameObjects[Random.Range(0, gameObjects.Length)], me.transform.position, Quaternion.identity);
+           
+
+
+
 
         }
     }
@@ -22,7 +35,11 @@ public class Target : MonoBehaviour
     public void Hit(float damage)
     {
         health -= Gun.damage;
-        Debug.Log(health);
+       // Debug.Log(health);
+
+
+
+
     }
 
 }
