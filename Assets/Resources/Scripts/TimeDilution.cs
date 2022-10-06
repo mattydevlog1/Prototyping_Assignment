@@ -69,7 +69,7 @@ public class TimeDilution : MonoBehaviour
                 break;
 
         }
-        if (Input.GetKeyDown(KeyCode.T) && timeResource > 0)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3) && timeResource > 0)
         {
             onoff = !onoff; // toggles onoff at each click
 

@@ -33,7 +33,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
             player.SetTrigger("IsShooting");
             Shoot();
