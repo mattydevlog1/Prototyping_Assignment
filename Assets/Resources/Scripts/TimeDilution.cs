@@ -15,7 +15,7 @@ public class TimeDilution : MonoBehaviour
 
     private float fixedDeltaTime;
 
-
+    private bool onoff = false;
 
 
     [Header("Set Slowmotion time")]
@@ -26,7 +26,7 @@ public class TimeDilution : MonoBehaviour
     private double maxTimeResource = 100f;
     public double timeResource;
 
-    private bool isKeyPressed = false;
+    
     private bool timeCircleActive = false;
 
     public GameObject timeCircle;
@@ -65,24 +65,38 @@ public class TimeDilution : MonoBehaviour
                 break;
 
         }
-
-        if (Input.GetKeyDown(KeyCode.T) && timeResource > 0 && timeState == TimeState.Normal)
+        if (Input.GetKeyDown(KeyCode.T) && timeResource > 0)
         {
-            Debug.Log("Slowing down Time");
-            timeState = TimeState.Slowed;
+            onoff = !onoff; // toggles onoff at each click
+
+            if (onoff)
+            {
+                print("left");
+                timeState = TimeState.Slowed;
+            }
+            else
+            {
+                print("right");
+                timeState = TimeState.Return;
+            }
+
+            //   if (Input.GetKeyDown(KeyCode.T) && timeResource > 0 && timeState == TimeState.Normal)
+            {
+                //     Debug.Log("Slowing down Time");
+                //    timeState = TimeState.Slowed;
+
+
+            }
+            // if (Input.GetKeyDown(KeyCode.T) && timeResource < 0 && timeState == TimeState.Slowed)
+            {
+                //    Debug.Log("Returned by input");
+                //    timeState = TimeState.Return;
+            }
+
+
 
 
         }
-        if (Input.GetKeyDown(KeyCode.T) && timeResource < 0 && timeState == TimeState.Slowed)
-        {
-            Debug.Log("Returned by input");
-            timeState = TimeState.Return;
-        }
-
-
-
-
-
 
 
 
