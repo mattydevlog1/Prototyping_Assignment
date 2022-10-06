@@ -208,6 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 2326513923274706654}
+  firepoint: {fileID: 0}
+  projectile: {fileID: 0}
+  shootSound: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &2326513923836655182
 GameObject:
@@ -317,6 +320,9 @@ MonoBehaviour:
   playerCurrentHp: 5
   player: {fileID: 0}
   enemy: {fileID: 0}
+  healthBar: {fileID: 0}
+  healEffect: {fileID: 0}
+  ellen: {fileID: 0}
 --- !u!114 &2326513923836655171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +490,7 @@ MonoBehaviour:
   timeCircle: {fileID: 0}
   player: {fileID: 2326513924196428517}
   timeSlowedDown: {fileID: 0}
+  timeDilutionBar: {fileID: 0}
 --- !u!114 &1551718648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.005
+      value: 0.052
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -656,31 +663,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5946084
+      value: 0.61478966
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.80017805
+      value: -0.7613067
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.04679697
+      value: -0.08458031
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.06297562
+      value: 0.18786149
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -106.768
+      value: -115.27
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -9
+      value: 66.021
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -57.43701
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972128, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Name

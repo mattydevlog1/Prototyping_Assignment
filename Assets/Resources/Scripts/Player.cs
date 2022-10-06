@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public GameObject healEffect;
+
+    public GameObject ellen;
+
 
 
 
@@ -74,8 +78,11 @@ public class Player : MonoBehaviour
 
         if (playerCurrentHp <= 0)
         {
-            Debug.Log("Youdied");
-            Destroy(gameObject);
+            Debug.Log("Youdied");           
+            player.SetBool("IsDead", true);
+            rb.isKinematic = true;
+            this.enabled = false;
+            
         }
 
 
@@ -112,8 +119,11 @@ public class Player : MonoBehaviour
             playerCurrentHp++;
             healthBar.SetHealth((int)playerCurrentHp);
 
+            Instantiate(healEffect, ellen.transform);
+            
 
-        }
+
+}
     }
 
 }

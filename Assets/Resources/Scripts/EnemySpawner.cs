@@ -13,8 +13,8 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-    [SerializeField]
-    GameObject enemy;
+    
+    public GameObject[] enemy = new GameObject[10];
 
     [SerializeField]
     GameObject spawn;
@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        Instantiate(enemy, spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
+        Instantiate(enemy[Random.Range(0, spawnPos.Length)], spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
 
     }
 }

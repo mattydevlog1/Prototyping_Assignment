@@ -7,6 +7,12 @@ public class Gun : MonoBehaviour
     [SerializeField]
     public GameObject gun;
 
+    public GameObject firepoint;
+
+    public GameObject projectile;
+
+    public AudioClip shootSound;
+
 
     public static float damage = 1;
 
@@ -31,6 +37,8 @@ public class Gun : MonoBehaviour
         {
             player.SetTrigger("IsShooting");
             Shoot();
+            Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
+            AudioSource.PlayClipAtPoint(shootSound, firepoint.transform.position);
         }
 
     }

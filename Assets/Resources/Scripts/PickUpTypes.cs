@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpTypes : MonoBehaviour
 {
-
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,6 +14,7 @@ public class PickUpTypes : MonoBehaviour
 
 
             Destroy(gameObject);
+            
 
 
         }
