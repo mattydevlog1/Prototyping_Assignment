@@ -105,6 +105,17 @@ public class Player : MonoBehaviour
         healthBar.SetHealth((int)playerCurrentHp);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "HealthBox")
+        {
+            playerCurrentHp++;
+            healthBar.SetHealth((int)playerCurrentHp);
+
+
+        }
+    }
+
 }
 
 
