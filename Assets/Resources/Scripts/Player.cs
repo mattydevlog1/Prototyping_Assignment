@@ -36,6 +36,10 @@ public class Player : MonoBehaviour
 
     public GameObject ellen;
 
+    [Header("Audio")]
+    public  AudioClip ellenDamage;
+    public  AudioClip ellenDeath;
+
 
 
 
@@ -56,6 +60,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         Debug.Log(playerCurrentHp);
+        
+        
+
 
 
 
@@ -68,6 +75,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Youdied");           
             player.SetBool("IsDead", true);
+            AudioSource.PlayClipAtPoint(ellenDeath, ellen.transform.position);
             rb.isKinematic = true;
             this.enabled = false;
             
@@ -98,6 +106,8 @@ public class Player : MonoBehaviour
     {
         playerCurrentHp = playerCurrentHp - enemyDmg;
         healthBar.SetHealth((int)playerCurrentHp);
+        Gamepad.current.SetMotorSpeeds(0.25f, 0.75f);
+        AudioSource.PlayClipAtPoint(ellenDamage, ellen.transform.position);
     }
 
     private void OnCollisionEnter(Collision collision)

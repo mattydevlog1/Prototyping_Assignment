@@ -20,6 +20,8 @@ public class Gun : MonoBehaviour
 
     private float shootRange = 30f;
 
+    
+
 
     public Animator player;
     // Update is called once per frame
@@ -35,6 +37,8 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
+
+            
             player.SetTrigger("IsShooting");
             Shoot();
             Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
