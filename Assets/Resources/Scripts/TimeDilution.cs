@@ -23,10 +23,10 @@ public class TimeDilution : MonoBehaviour
 
 
     [SerializeField]
-    private double maxTimeResource = 100f;
-    public double timeResource;
+    private float maxTimeResource = 10f;
+    public float timeResource;
 
-    
+
     private bool timeCircleActive = false;
 
     public GameObject timeCircle;
@@ -34,17 +34,21 @@ public class TimeDilution : MonoBehaviour
 
     public AudioClip timeSlowedDown;
 
+    public TimeDilutionBar timeDilutionBar;
 
 
     void Awake()
     {
         this.fixedDeltaTime = Time.fixedDeltaTime;
         timeResource = maxTimeResource;
+
     }
-      
+
     void Update()
     {
         Debug.Log(timeResource);
+        timeDilutionBar.SetTime((float)timeResource);
+
 
         switch (timeState)
         {
@@ -73,11 +77,13 @@ public class TimeDilution : MonoBehaviour
             {
                 print("left");
                 timeState = TimeState.Slowed;
+
+
             }
             else
             {
                 print("right");
-                timeState = TimeState.Return;
+                timeState = TimeState.Normal;
             }
 
             //   if (Input.GetKeyDown(KeyCode.T) && timeResource > 0 && timeState == TimeState.Normal)

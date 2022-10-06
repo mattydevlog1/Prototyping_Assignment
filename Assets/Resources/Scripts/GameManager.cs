@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         //  timeKeeper.text = GameObject.Find("Ellen").GetComponent<TimeDilution>().timeResource.ToString("0");
         //  GameObject.Find("Ellen").GetComponent<Player>().playerCurrentHp.ToString("0");
+        timeKeeper.text = GameObject.Find("Ellen").GetComponent<TimeDilution>().timeResource.ToString("0");
+        GameObject.Find("Ellen").GetComponent<Player>().playerCurrentHp.ToString("0");
     }
     public void timeUpdate()
     {
