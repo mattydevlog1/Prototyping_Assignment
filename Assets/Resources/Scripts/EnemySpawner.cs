@@ -18,38 +18,37 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     GameObject spawn;
+    float delayAndSpawnRate = 1;
+    float timeUntilSpawnRateIncrease = 5;
 
     void Start()
     {
-        spawnLimit = 1;
-        spawnTimer = 60;
-
+        StartCoroutine(SpawnObject(delayAndSpawnRate));
     }
 
-
-    void Update()
+    IEnumerator SpawnObject(float firstDelay)
     {
-        if (spawnLimit > 0)
+        float spawnRateCountdown = timeUntilSpawnRateIncrease;
+        float spawnCountdown = firstDelay;
+        while (true)
         {
-            spawnLimit--;
+            yield return null;
+            spawnRateCountdown -= Time.deltaTime;
+            spawnCountdown -= Time.deltaTime;
+
+            // Should a new object be spawned?
+            if (spawnCountdown < 0)
+            {
+                spawnCountdown += delayAndSpawnRate;
+                Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
+            }
+
+            // Should the spawn rate increase?
+            if (spawnRateCountdown < 0 && delayAndSpawnRate > 1)
+            {
+                spawnRateCountdown += timeUntilSpawnRateIncrease;
+                delayAndSpawnRate -= 0.1f;
+            }
         }
-        if (spawnTimer >= 0)
-
-            Spawn();
-
-    }
-    void Spawn()
-    {
-
-        if (spawnLimit >= 0)
-        {
-            spawnLimit--;
-            InvokeRepeating("SpawnEnemy", 0f, 3f);
-        }
-    }
-    void SpawnEnemy()
-    {
-        Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPos[Random.Range(0, spawnPos.Length)].transform.position, Quaternion.identity);
-
     }
 }

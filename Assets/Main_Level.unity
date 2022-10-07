@@ -6161,7 +6161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   gameObjects:
-  - {fileID: 2126214778}
+  - {fileID: 227410602}
   - {fileID: 1115164260}
   - {fileID: 227410602}
   - {fileID: 227410602}
@@ -7779,7 +7779,7 @@ PrefabInstance:
       objectReference: {fileID: 1463782862}
     - target: {fileID: 923381107, guid: 73eb87142f2a78b41b8708f1f22ef268, type: 3}
       propertyPath: health
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 923381107, guid: 73eb87142f2a78b41b8708f1f22ef268, type: 3}
       propertyPath: zombie
@@ -7792,7 +7792,7 @@ PrefabInstance:
     - target: {fileID: 923381107, guid: 73eb87142f2a78b41b8708f1f22ef268, type: 3}
       propertyPath: gameObjects.Array.data[1]
       value: 
-      objectReference: {fileID: 1115164260}
+      objectReference: {fileID: 227410602}
     - target: {fileID: 923381107, guid: 73eb87142f2a78b41b8708f1f22ef268, type: 3}
       propertyPath: gameObjects.Array.data[2]
       value: 
@@ -8175,7 +8175,7 @@ PrefabInstance:
       objectReference: {fileID: 914335442}
     - target: {fileID: 2326513923836655168, guid: 05c47146899fec54cb64b855f40783cd, type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2326513923836655168, guid: 05c47146899fec54cb64b855f40783cd, type: 3}
       propertyPath: ellenDeath

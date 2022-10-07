@@ -20,7 +20,12 @@ public class Gun : MonoBehaviour
 
     private float shootRange = 30f;
 
-    
+    float delay = 0.2f;
+    float timestamp = 0.0f;
+    public bool canIshoot = false;
+    public float shootAmount = 3;
+
+
 
 
     public Animator player;
@@ -35,16 +40,38 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button7))
+        if (Input.GetKey(KeyCode.Joystick1Button7) && timestamp <= Time.time && shootAmount > 0)
         {
+            canIshoot = !canIshoot;
 
+            if (canIshoot)
+            {
+                player.SetTrigger("IsShooting");
+                Shoot();
+                Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
+                AudioSource.PlayClipAtPoint(shootSound, firepoint.transform.position);
+                timestamp = Time.time + delay;
+                shootAmount--;
+            }
+            else
+            {
+                Debug.Log("reseeeeeeeeeeeeeeeeeeet");
+                Invoke("ResetBool", 1f);
+            }
+
+
+           
             
-            player.SetTrigger("IsShooting");
-            Shoot();
-            Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
-            AudioSource.PlayClipAtPoint(shootSound, firepoint.transform.position);
+            
+
+        
+            
         }
 
+    }
+    public void ResetBool()
+    {
+        shootAmount = 3;
     }
 
     void Shoot()

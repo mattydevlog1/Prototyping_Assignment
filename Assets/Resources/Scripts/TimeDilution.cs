@@ -46,7 +46,7 @@ public class TimeDilution : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(timeResource);
+        
         timeDilutionBar.SetTime((float)timeResource);
 
 

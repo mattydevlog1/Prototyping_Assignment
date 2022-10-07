@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
     public GameObject ellen;
 
     [Header("Audio")]
-    public  AudioClip ellenDamage;
-    public  AudioClip ellenDeath;
+    public AudioClip ellenDamage;
+    public AudioClip ellenDeath;
 
 
 
@@ -55,30 +55,34 @@ public class Player : MonoBehaviour
     }
 
 
-
+    Vector3 lookRot;
 
     void Update()
     {
         Debug.Log(playerCurrentHp);
-        
-        
 
 
 
 
+        Vector3 newLookRot = new Vector3(Input.GetAxisRaw("RightHoriz"), 0, Input.GetAxisRaw("RightVert"));
 
+        if (newLookRot != Vector3.zero)
+        {
+            lookRot = newLookRot;
+        }
 
-        Vector3 lookDirection = new Vector3(Input.GetAxisRaw("RightHoriz"), 0, Input.GetAxisRaw("RightVert"));
-        transform.rotation = Quaternion.LookRotation(lookDirection);
+        transform.rotation = Quaternion.LookRotation(lookRot);
+
+        //Vector3 lookDirection = new Vector3(Input.GetAxisRaw("RightHoriz"), 0, Input.GetAxisRaw("RightVert"));
 
         if (playerCurrentHp <= 0)
         {
-            Debug.Log("Youdied");           
+            Debug.Log("Youdied");
             player.SetBool("IsDead", true);
             AudioSource.PlayClipAtPoint(ellenDeath, ellen.transform.position);
             rb.isKinematic = true;
             this.enabled = false;
-            
+
         }
 
 
@@ -118,10 +122,10 @@ public class Player : MonoBehaviour
             healthBar.SetHealth((int)playerCurrentHp);
 
             Instantiate(healEffect, ellen.transform);
-            
 
 
-}
+
+        }
     }
 
 }
