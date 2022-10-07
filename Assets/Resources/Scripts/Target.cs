@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
 
     public GameObject[] gameObjects = new GameObject[9];
 
-    public GameObject pickUp;
+    public GameObject zombie;
     public GameObject me;
     
     
@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
         {
 
             GameManager.instance.highScore += 1;
-            Destroy(me);
+            Destroy(zombie);
             Instantiate(gameObjects[Random.Range(0, gameObjects.Length)], me.transform.position, Quaternion.identity);
            
 
